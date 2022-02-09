@@ -44,6 +44,7 @@ OPTIONS:
   -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey] (Default: All variants)s)
   -c, --color VARIANT     Specify color variant(s) [night|light|dark] (Default: All variants)s)
   -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 1080p)
+  -n, --nord VARIANT      Specify Nord color variant(s)
   -u, --uninstall         Uninstall wallpappers
   -h, --help              Show help
 
@@ -74,6 +75,10 @@ while [[ $# -gt 0 ]]; do
   case "${1}" in
     -u|--uninstall)
       uninstall='true'
+      shift
+      ;;
+    -n|--nord)
+      nord='true'
       shift
       ;;
     -t|--theme)
@@ -177,6 +182,12 @@ if [[ "${#screens[@]}" -eq 0 ]] ; then
   screens=("${SCREEN_VARIANTS[0]}")
 fi
 
+install_nord() {
+  prompt -i "* Install Nord Wallpapers in ${WALLPAPER_DIR}... "
+  mkdir -p "${WALLPAPER_DIR}"g
+  cp -rf ${REPO_DIR}/Wallpaper-nord/*.png ${WALLPAPER_DIR}
+}
+
 install_wallpaper() {
   for theme in "${themes[@]}"; do
     for color in "${colors[@]}"; do
@@ -197,7 +208,11 @@ uninstall_wallpaper() {
 
 echo
 if [[ "${uninstall}" != 'true' ]]; then
-  install_wallpaper
+  if [[ "${nord}" != 'true' ]]; then
+    install_wallpaper
+  else
+    install_nord
+  fi
 else
   uninstall_wallpaper
 fi

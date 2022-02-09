@@ -11,6 +11,12 @@
 ![2](1080p/Monterey.png)
 ![3](1080p/Monterey-dark.png)
 
+## Nord Wallpapers
+![1](Wallpaper-nord/Mojave-nord-light.png)
+![2](Wallpaper-nord/Mojave-nord-dark.png)
+![3](Wallpaper-nord/WhiteSur-nord.png)
+![4](Wallpaper-nord/Monterey-nord.png)
+
 ## Installation
 
 ### Install Gnome Backgrounds (wallpaper will change according to time)
@@ -40,6 +46,7 @@ sudo ./install-gnome-backgrounds.sh
   -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey] (Default: All variants)s)
   -c, --color VARIANT     Specify color variant(s) [light|dark] (Default: All variants)s)
   -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 1080p)
+  -n, --nord VARIANT      Specify Nord color variant(s)
   -u, --uninstall         Uninstall wallpappers
   -h, --help              Show help
 ```
