@@ -12,10 +12,9 @@
 ![3](1080p/Monterey-dark.png)
 
 ## Nord Wallpapers
-![1](Wallpaper-nord/Mojave-nord-light.png)
-![2](Wallpaper-nord/Mojave-nord-dark.png)
-![3](Wallpaper-nord/WhiteSur-nord.png)
-![4](Wallpaper-nord/Monterey-nord.png)
+![1](Wallpaper-nord/Mojave-nord-dark.png)
+![2](Wallpaper-nord/WhiteSur-nord.png)
+![3](Wallpaper-nord/Monterey-nord.png)
 
 ## Installation
 
