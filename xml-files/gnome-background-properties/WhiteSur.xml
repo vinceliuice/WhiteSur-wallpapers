@@ -3,6 +3,26 @@
 <wallpapers>
   <wallpaper deleted="false">
     <name>WhiteSur Background</name>
+    <filename>/usr/share/backgrounds/WhiteSur/WhiteSur-light.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/WhiteSur/WhiteSur.jpg</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#51a2da</pcolor>
+    <scolor>#294172</scolor>
+  </wallpaper>
+
+  <wallpaper deleted="false">
+    <name>WhiteSur Nord Background</name>
+    <filename>/usr/share/backgrounds/Wallpaper-nord/WhiteSur-nord-light.png</filename>
+    <filename-dark>/usr/share/backgrounds/Wallpaper-nord/WhiteSur-nord-dark.png</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#6882b3</pcolor>
+    <scolor>#455a85</scolor>
+  </wallpaper>
+
+  <wallpaper deleted="false">
+    <name>WhiteSur Time of Day</name>
     <filename>/usr/share/backgrounds/WhiteSur/WhiteSur-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>

@@ -63,9 +63,9 @@ install() {
   [[ -d ${BACKGROUND_DIR}/${theme} ]] && rm -rf ${BACKGROUND_DIR}/${theme}
   [[ -f ${PROPERTIES_DIR}/${theme}.xml ]] && rm -rf ${PROPERTIES_DIR}/${theme}.xml
   mkdir -p ${BACKGROUND_DIR}/${theme}
-  cp -r ${REPO_DIR}/${screen}/${theme}{'','-morning','-light'}.jpg ${BACKGROUND_DIR}/${theme}
-  cp -r ${REPO_DIR}/xml-files/timed-xml-files/${theme}-timed.xml ${BACKGROUND_DIR}/${theme}
-  cp -r ${REPO_DIR}/xml-files/gnome-background-properties/${theme}.xml ${PROPERTIES_DIR}
+  cp -a --no-preserve=ownership ${REPO_DIR}/${screen}/${theme}{'','-morning','-light'}.jpg ${BACKGROUND_DIR}/${theme}
+  cp -a --no-preserve=ownership ${REPO_DIR}/xml-files/timed-xml-files/${theme}-timed.xml ${BACKGROUND_DIR}/${theme}
+  cp -a --no-preserve=ownership ${REPO_DIR}/xml-files/gnome-background-properties/${theme}.xml ${PROPERTIES_DIR}
 }
 
 uninstall() {
@@ -73,6 +73,18 @@ uninstall() {
   prompt -i "\n * Uninstall ${theme}... "
   [[ -d ${BACKGROUND_DIR}/${theme} ]] && rm -rf ${BACKGROUND_DIR}/${theme}
   [[ -f ${PROPERTIES_DIR}/${theme}.xml ]] && rm -rf ${PROPERTIES_DIR}/${theme}.xml
+}
+
+uninstall_nord() {
+  [[ -d ${BACKGROUND_DIR}/Wallpaper-nord ]] && rm -rf ${BACKGROUND_DIR}/${BACKGROUND_DIR}/Wallpaper-nord
+  [[ -f ${PROPERTIES_DIR}/Mojave.xml ]] && rm -rf ${PROPERTIES_DIR}/Mojave.xml
+}
+
+install_nord_wallpaper() {
+  prompt -w "Install Nord version in ${BACKGROUND_DIR}... \n"
+  mkdir -p ${BACKGROUND_DIR}/Wallpaper-nord
+  cp -a --no-preserve=ownership ${REPO_DIR}/Wallpaper-nord/{'Mojave-nord','WhiteSur-nord'}{'-dark','-light'}.png ${BACKGROUND_DIR}/Wallpaper-nord
+  cp -a --no-preserve=ownership ${REPO_DIR}/xml-files/gnome-background-properties/Mojave.xml ${PROPERTIES_DIR}
 }
 
 while [[ $# -gt 0 ]]; do
@@ -163,9 +175,9 @@ install_wallpaper() {
 
 uninstall_wallpaper() {
   echo
-  for theme in "${themes[@]}"; do
-    uninstall "$theme"
-  done
+    for theme in "${themes[@]}"; do
+      uninstall "$theme"
+    done
   echo
 }
 
@@ -177,9 +189,9 @@ if [[ $UID -ne $ROOT_UID ]];  then
 fi
 
 if [[ "${uninstall}" != 'true' ]]; then
-  install_wallpaper
+  install_wallpaper && install_nord_wallpaper
 else
-  uninstall_wallpaper
+  uninstall_wallpaper && uninstall_nord
 fi
 
 prompt -s "Finished!"

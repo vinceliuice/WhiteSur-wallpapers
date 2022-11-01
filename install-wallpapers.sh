@@ -61,14 +61,24 @@ install() {
   prompt -i "\n * Install ${theme}${color} in ${WALLPAPER_DIR}... "
   mkdir -p "${WALLPAPER_DIR}"
   [[ -f ${WALLPAPER_DIR}/${theme}${color}.png ]] && rm -rf ${WALLPAPER_DIR}/${theme}${color}.png
-  cp -r ${REPO_DIR}/${screen}/${theme}${color}.png ${WALLPAPER_DIR}
+  cp -a --no-preserve=ownership ${REPO_DIR}/${screen}/${theme}${color}.png ${WALLPAPER_DIR}
+}
+
+install_nord() {
+  prompt -i "\n * Install Nord Wallpapers in ${WALLPAPER_DIR}... "
+  cp -a --no-preserve=ownership ${REPO_DIR}/Wallpaper-nord/{'Mojave-nord','WhiteSur-nord'}{'-dark','-light'}.png ${WALLPAPER_DIR}
 }
 
 uninstall() {
   local theme="$1"
   local color="$2"
   prompt -i "\n * Uninstall ${theme}${color}... "
-  [[ -f ${WALLPAPER_DIR}/${theme}${color}.png ]] && rm -rf ${WALLPAPER_DIR}/${theme}${color}.png
+  rm -rf ${WALLPAPER_DIR}/${theme}${color}.png
+}
+
+uninstall_nord() {
+  prompt -i "\n * Uninstall Nord Wallpapers... "
+  rm -rf ${WALLPAPER_DIR}/{'Mojave-nord','WhiteSur-nord'}{'-dark','-light'}.png
 }
 
 while [[ $# -gt 0 ]]; do
@@ -182,12 +192,6 @@ if [[ "${#screens[@]}" -eq 0 ]] ; then
   screens=("${SCREEN_VARIANTS[0]}")
 fi
 
-install_nord() {
-  prompt -i "* Install Nord Wallpapers in ${WALLPAPER_DIR}... "
-  mkdir -p "${WALLPAPER_DIR}"g
-  cp -rf ${REPO_DIR}/Wallpaper-nord/*.png ${WALLPAPER_DIR}
-}
-
 install_wallpaper() {
   for theme in "${themes[@]}"; do
     for color in "${colors[@]}"; do
@@ -214,7 +218,7 @@ if [[ "${uninstall}" != 'true' ]]; then
     install_nord
   fi
 else
-  uninstall_wallpaper
+  uninstall_wallpaper && uninstall_nord
 fi
 prompt -s "\n * All done!"
 echo
