@@ -1,8 +1,4 @@
-
-# MacOS Wallpapers for linux desktop
-
 ## Installation
-
 ### Install Gnome Backgrounds (wallpaper will change according to time)
 
 ```sh
