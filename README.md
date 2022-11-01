@@ -1,21 +1,6 @@
 
 # MacOS Wallpapers for linux desktop
 
-## WhiteSur (Big Sur) Wallpapers
-![1](1080p/WhiteSur-light.png)
-![2](1080p/WhiteSur.png)
-![3](1080p/WhiteSur-dark.png)
-
-## Monterey Wallpapers
-![1](1080p/Monterey-light.png)
-![2](1080p/Monterey.png)
-![3](1080p/Monterey-dark.png)
-
-## Nord Wallpapers
-![1](Wallpaper-nord/Mojave-nord-dark.png)
-![2](Wallpaper-nord/WhiteSur-nord.png)
-![3](Wallpaper-nord/Monterey-nord.png)
-
 ## Installation
 
 ### Install Gnome Backgrounds (wallpaper will change according to time)
@@ -49,3 +34,20 @@ sudo ./install-gnome-backgrounds.sh
   -u, --uninstall         Uninstall wallpappers
   -h, --help              Show help
 ```
+
+## WhiteSur (Big Sur) Wallpapers
+![1](1080p/WhiteSur-light.png)
+![2](1080p/WhiteSur.png)
+![3](1080p/WhiteSur-dark.png)
+
+## Monterey Wallpapers
+![1](1080p/Monterey-light.png)
+![2](1080p/Monterey.png)
+![3](1080p/Monterey-dark.png)
+
+## Nord Wallpapers
+![1](Wallpaper-nord/Mojave-nord-light.png)
+![2](Wallpaper-nord/Mojave-nord-dark.png)
+![3](Wallpaper-nord/WhiteSur-nord-light.png)
+![4](Wallpaper-nord/WhiteSur-nord-dark.png)
+![5](Wallpaper-nord/Monterey-nord.png)
