@@ -14,7 +14,7 @@ sudo ./install-gnome-backgrounds.sh
   -h, --help              Show help
 ```
 
-### Install Normal Wallpappers
+### Install Normal Wallpapers
 
 ```sh
 ./install-wallpapers.sh
