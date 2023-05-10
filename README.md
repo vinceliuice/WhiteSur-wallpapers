@@ -31,6 +31,13 @@ sudo ./install-gnome-backgrounds.sh
   -h, --help              Show help
 ```
 
+### Select background image with clock symbol
+
+![Screenshot from 2023-05-05 23-51-34](https://github.com/yaswanthbb/WhiteSur-wallpapers/assets/76676763/9e61dbfe-532d-498f-b2b3-6027abef0f96)
+
+
+
+
 ## WhiteSur (Big Sur) Wallpapers
 ![1](1080p/WhiteSur-light.png)
 ![2](1080p/WhiteSur.png)
