@@ -4,7 +4,7 @@ REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 WALLPAPER_DIR="$HOME/.local/share/backgrounds"
 
 THEME_VARIANTS=('WhiteSur' 'Monterey' 'Ventura')
-COLOR_VARIANTS=('-morning' '-light' '-dark')
+COLOR_VARIANTS=('' '-light' '-dark')
 SCREEN_VARIANTS=('1080p' '2k' '4k')
 
 #COLORS
@@ -62,7 +62,7 @@ install() {
   mkdir -p "${WALLPAPER_DIR}"
 
   if [[ "${theme}" == 'Ventura' ]]; then
-    [[ "${color}" == '-morning' ]] && local color='-light'
+    [[ "${color}" == '' ]] && local color='-light'
   fi
 
   [[ -f ${WALLPAPER_DIR}/${theme}${color}.jpg ]] && rm -rf ${WALLPAPER_DIR}/${theme}${color}.jpg
@@ -132,7 +132,7 @@ while [[ $# -gt 0 ]]; do
       shift
       for color in "$@"; do
         case "$color" in
-          morning)
+          night)
             colors+=("${COLOR_VARIANTS[0]}")
             shift 1
             ;;

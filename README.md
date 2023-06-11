@@ -31,19 +31,14 @@ sudo ./install-gnome-backgrounds.sh
   -h, --help              Show help
 ```
 
-## WhiteSur (Big Sur) Wallpapers
-![1](1080p/WhiteSur-light.png)
-![2](1080p/WhiteSur.png)
-![3](1080p/WhiteSur-dark.png)
+## Ventura Wallpapers
+![preview](preview-ventura.png)
 
 ## Monterey Wallpapers
-![1](1080p/Monterey-light.png)
-![2](1080p/Monterey.png)
-![3](1080p/Monterey-dark.png)
+![preview](preview-monterey.png)
+
+## WhiteSur (Big Sur) Wallpapers
+![preview](preview-whitesur.png)
 
 ## Nord Wallpapers
-![1](Wallpaper-nord/Mojave-nord-light.png)
-![2](Wallpaper-nord/Mojave-nord-dark.png)
-![3](Wallpaper-nord/WhiteSur-nord-light.png)
-![4](Wallpaper-nord/WhiteSur-nord-dark.png)
-![5](Wallpaper-nord/Monterey-nord.png)
+![preview](preview-nord.png)
