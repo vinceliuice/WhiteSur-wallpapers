@@ -8,8 +8,8 @@ sudo ./install-gnome-backgrounds.sh
 > Options:
 
 ```
-  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey] (Default: All variants)s)
-  -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 1080p)
+  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey|ventura] (Default: All variants)s)
+  -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 4k)
   -u, --uninstall         Uninstall wallpappers
   -h, --help              Show help
 ```
@@ -23,9 +23,9 @@ sudo ./install-gnome-backgrounds.sh
 > Options:
 
 ```
-  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey] (Default: All variants)s)
+  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey|ventura] (Default: All variants)s)
   -c, --color VARIANT     Specify color variant(s) [light|dark] (Default: All variants)s)
-  -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 1080p)
+  -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 4k)
   -n, --nord VARIANT      Specify Nord color variant(s)
   -u, --uninstall         Uninstall wallpappers
   -h, --help              Show help

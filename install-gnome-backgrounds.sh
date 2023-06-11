@@ -7,7 +7,7 @@ REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 BACKGROUND_DIR="/usr/share/backgrounds"
 PROPERTIES_DIR="/usr/share/gnome-background-properties"
 
-THEME_VARIANTS=('WhiteSur' 'Monterey')
+THEME_VARIANTS=('WhiteSur' 'Monterey' 'Ventura')
 SCREEN_VARIANTS=('1080p' '2k' '4k')
 
 #COLORS
@@ -44,8 +44,8 @@ usage() {
 Usage: $0 [OPTION]...
 
 OPTIONS:
-  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey] (Default: All variants)s)
-  -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 1080p)
+  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey|ventura] (Default: All variants)s)
+  -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 4k)
   -u, --uninstall         Uninstall wallpappers
   -h, --help              Show help
 
@@ -63,7 +63,13 @@ install() {
   [[ -d ${BACKGROUND_DIR}/${theme} ]] && rm -rf ${BACKGROUND_DIR}/${theme}
   [[ -f ${PROPERTIES_DIR}/${theme}.xml ]] && rm -rf ${PROPERTIES_DIR}/${theme}.xml
   mkdir -p ${BACKGROUND_DIR}/${theme}
-  cp -a --no-preserve=ownership ${REPO_DIR}/${screen}/${theme}{'','-morning','-light'}.jpg ${BACKGROUND_DIR}/${theme}
+
+  if [[ "${theme}" == 'Ventura' ]]; then
+    cp -a --no-preserve=ownership ${REPO_DIR}/4k/${theme}{'-dark','-light'}.jpg ${BACKGROUND_DIR}/${theme}
+  else
+    cp -a --no-preserve=ownership ${REPO_DIR}/${screen}/${theme}{'','-morning','-light'}.jpg ${BACKGROUND_DIR}/${theme}
+  fi
+
   cp -a --no-preserve=ownership ${REPO_DIR}/xml-files/timed-xml-files/${theme}-timed.xml ${BACKGROUND_DIR}/${theme}
   cp -a --no-preserve=ownership ${REPO_DIR}/xml-files/gnome-background-properties/${theme}.xml ${PROPERTIES_DIR}
 }
@@ -103,6 +109,10 @@ while [[ $# -gt 0 ]]; do
             ;;
           monterey)
             themes+=("${THEME_VARIANTS[1]}")
+            shift 1
+            ;;
+          ventura)
+            themes+=("${THEME_VARIANTS[2]}")
             shift 1
             ;;
           -*)
@@ -166,7 +176,7 @@ fi
 install_wallpaper() {
   echo
   for theme in "${themes[@]}"; do
-    for screen in "${screens[0]}"; do
+    for screen in "${screens[2]}"; do
       install "$theme" "$screen"
     done
   done
@@ -175,9 +185,9 @@ install_wallpaper() {
 
 uninstall_wallpaper() {
   echo
-    for theme in "${themes[@]}"; do
-      uninstall "$theme"
-    done
+  for theme in "${themes[@]}"; do
+    uninstall "$theme"
+  done
   echo
 }
 

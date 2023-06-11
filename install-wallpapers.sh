@@ -3,8 +3,8 @@
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 WALLPAPER_DIR="$HOME/.local/share/backgrounds"
 
-THEME_VARIANTS=('WhiteSur' 'Monterey')
-COLOR_VARIANTS=('' '-light' '-dark')
+THEME_VARIANTS=('WhiteSur' 'Monterey' 'Ventura')
+COLOR_VARIANTS=('-morning' '-light' '-dark')
 SCREEN_VARIANTS=('1080p' '2k' '4k')
 
 #COLORS
@@ -41,9 +41,9 @@ usage() {
 Usage: $0 [OPTION]...
 
 OPTIONS:
-  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey] (Default: All variants)s)
-  -c, --color VARIANT     Specify color variant(s) [night|light|dark] (Default: All variants)s)
-  -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 1080p)
+  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey|ventura] (Default: All variants)s)
+  -c, --color VARIANT     Specify color variant(s) [morning|light|dark] (Default: All variants)s)
+  -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 4k)
   -n, --nord VARIANT      Specify Nord color variant(s)
   -u, --uninstall         Uninstall wallpappers
   -h, --help              Show help
@@ -60,8 +60,18 @@ install() {
   local screen="$3"
   prompt -i "\n * Install ${theme}${color} in ${WALLPAPER_DIR}... "
   mkdir -p "${WALLPAPER_DIR}"
-  [[ -f ${WALLPAPER_DIR}/${theme}${color}.png ]] && rm -rf ${WALLPAPER_DIR}/${theme}${color}.png
-  cp -a --no-preserve=ownership ${REPO_DIR}/${screen}/${theme}${color}.png ${WALLPAPER_DIR}
+
+  if [[ "${theme}" == 'Ventura' ]]; then
+    [[ "${color}" == '-morning' ]] && local color='-light'
+  fi
+
+  [[ -f ${WALLPAPER_DIR}/${theme}${color}.jpg ]] && rm -rf ${WALLPAPER_DIR}/${theme}${color}.jpg
+
+  if [[ "${theme}" == 'Ventura' ]]; then
+    cp -a --no-preserve=ownership ${REPO_DIR}/4k/${theme}${color}.jpg ${WALLPAPER_DIR}
+  else
+    cp -a --no-preserve=ownership ${REPO_DIR}/${screen}/${theme}${color}.jpg ${WALLPAPER_DIR}
+  fi
 }
 
 install_nord() {
@@ -73,7 +83,7 @@ uninstall() {
   local theme="$1"
   local color="$2"
   prompt -i "\n * Uninstall ${theme}${color}... "
-  rm -rf ${WALLPAPER_DIR}/${theme}${color}.png
+  rm -rf ${WALLPAPER_DIR}/${theme}${color}.jpg
 }
 
 uninstall_nord() {
@@ -103,6 +113,10 @@ while [[ $# -gt 0 ]]; do
             themes+=("${THEME_VARIANTS[1]}")
             shift 1
             ;;
+          ventura)
+            themes+=("${THEME_VARIANTS[1]}")
+            shift 1
+            ;;
           -*)
             break
             ;;
@@ -118,7 +132,7 @@ while [[ $# -gt 0 ]]; do
       shift
       for color in "$@"; do
         case "$color" in
-          night)
+          morning)
             colors+=("${COLOR_VARIANTS[0]}")
             shift 1
             ;;
@@ -189,7 +203,7 @@ if [[ "${#colors[@]}" -eq 0 ]] ; then
 fi
 
 if [[ "${#screens[@]}" -eq 0 ]] ; then
-  screens=("${SCREEN_VARIANTS[0]}")
+  screens=("${SCREEN_VARIANTS[2]}")
 fi
 
 install_wallpaper() {
