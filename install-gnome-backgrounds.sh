@@ -7,7 +7,7 @@ REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 BACKGROUND_DIR="/usr/share/backgrounds"
 PROPERTIES_DIR="/usr/share/gnome-background-properties"
 
-THEME_VARIANTS=('WhiteSur' 'Monterey' 'Ventura')
+THEME_VARIANTS=('WhiteSur' 'Monterey' 'Ventura' 'Sonoma')
 SCREEN_VARIANTS=('1080p' '2k' '4k')
 
 #COLORS
@@ -44,7 +44,7 @@ usage() {
 Usage: $0 [OPTION]...
 
 OPTIONS:
-  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey|ventura] (Default: All variants)s)
+  -t, --theme VARIANT     Specify theme variant(s) [whitesur|monterey|ventura|sonoma] (Default: All variants)s)
   -s, --screen VARIANT    Specify screen variant [1080p|2k|4k] (Default: 4k)
   -u, --uninstall         Uninstall wallpappers
   -h, --help              Show help
@@ -64,7 +64,7 @@ install() {
   [[ -f ${PROPERTIES_DIR}/${theme}.xml ]] && rm -rf ${PROPERTIES_DIR}/${theme}.xml
   mkdir -p ${BACKGROUND_DIR}/${theme}
 
-  if [[ "${theme}" == 'Ventura' ]]; then
+  if [[ "${theme}" == 'Ventura' || "${theme}" == 'Sonoma' ]]; then
     cp -a --no-preserve=ownership ${REPO_DIR}/4k/${theme}{'-dark','-light'}.jpg ${BACKGROUND_DIR}/${theme}
   else
     cp -a --no-preserve=ownership ${REPO_DIR}/${screen}/${theme}{'','-morning','-light'}.jpg ${BACKGROUND_DIR}/${theme}
@@ -90,7 +90,7 @@ install_nord_wallpaper() {
   prompt -w "Install Nord version in ${BACKGROUND_DIR}... \n"
   mkdir -p ${BACKGROUND_DIR}/Wallpaper-nord
   cp -a --no-preserve=ownership ${REPO_DIR}/Wallpaper-nord/{'Mojave-nord','WhiteSur-nord'}{'-dark','-light'}.png ${BACKGROUND_DIR}/Wallpaper-nord
-  cp -a --no-preserve=ownership ${REPO_DIR}/xml-files/gnome-background-properties/Mojave.xml ${PROPERTIES_DIR}
+  cp -a --no-preserve=ownership ${REPO_DIR}/xml-files/gnome-background-properties/Mojave-nord.xml ${PROPERTIES_DIR}
 }
 
 while [[ $# -gt 0 ]]; do
@@ -113,6 +113,10 @@ while [[ $# -gt 0 ]]; do
             ;;
           ventura)
             themes+=("${THEME_VARIANTS[2]}")
+            shift 1
+            ;;
+          sonoma)
+            themes+=("${THEME_VARIANTS[3]}")
             shift 1
             ;;
           -*)

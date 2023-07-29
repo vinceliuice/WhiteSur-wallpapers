@@ -3,7 +3,7 @@
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 WALLPAPER_DIR="$HOME/.local/share/backgrounds"
 
-THEME_VARIANTS=('WhiteSur' 'Monterey' 'Ventura')
+THEME_VARIANTS=('WhiteSur' 'Monterey' 'Ventura' 'Sonoma')
 COLOR_VARIANTS=('' '-light' '-dark')
 SCREEN_VARIANTS=('1080p' '2k' '4k')
 
@@ -61,13 +61,13 @@ install() {
   prompt -i "\n * Install ${theme}${color} in ${WALLPAPER_DIR}... "
   mkdir -p "${WALLPAPER_DIR}"
 
-  if [[ "${theme}" == 'Ventura' ]]; then
+  if [[ "${theme}" == 'Ventura' || "${theme}" == 'Sonoma' ]]; then
     [[ "${color}" == '' ]] && local color='-light'
   fi
 
   [[ -f ${WALLPAPER_DIR}/${theme}${color}.jpg ]] && rm -rf ${WALLPAPER_DIR}/${theme}${color}.jpg
 
-  if [[ "${theme}" == 'Ventura' ]]; then
+  if [[ "${theme}" == 'Ventura' || "${theme}" == 'Sonoma' ]]; then
     cp -a --no-preserve=ownership ${REPO_DIR}/4k/${theme}${color}.jpg ${WALLPAPER_DIR}
   else
     cp -a --no-preserve=ownership ${REPO_DIR}/${screen}/${theme}${color}.jpg ${WALLPAPER_DIR}
@@ -114,7 +114,11 @@ while [[ $# -gt 0 ]]; do
             shift 1
             ;;
           ventura)
-            themes+=("${THEME_VARIANTS[1]}")
+            themes+=("${THEME_VARIANTS[2]}")
+            shift 1
+            ;;
+          sonoma)
+            themes+=("${THEME_VARIANTS[3]}")
             shift 1
             ;;
           -*)
