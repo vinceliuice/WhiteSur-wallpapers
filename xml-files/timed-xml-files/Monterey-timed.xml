@@ -55,11 +55,4 @@
   <from>/usr/share/backgrounds/Monterey/Monterey-dark.jpg</from>
   <to>/usr/share/backgrounds/Monterey/Monterey-morning.jpg</to>
 </transition>
-
-<!-- It's 5 AM. We'll start transitioning to sunrise for 2 hours up until 7 AM. -->
-<transition type="overlay">
-<duration>7200.0</duration>
-<from>/usr/share/backgrounds/Monterey/Monterey.jpg</from>
-<to>/usr/share/backgrounds/Monterey/Monterey-morning.jpg</to>
-</transition>
 </background>
