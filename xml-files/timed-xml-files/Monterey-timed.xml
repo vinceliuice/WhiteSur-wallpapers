@@ -36,11 +36,25 @@
 <to>/usr/share/backgrounds/Monterey/Monterey.jpg</to>
 </transition>
 
-<!-- It's midnight. It'll stay dark for 5 hours up until 5 AM. -->
+<!-- Transition to 'Monterey-dark.jpg' starting at midnight -->
+<transition type="overlay">
+  <duration>3600.0</duration> <!-- 1 hour transition -->
+  <from>/usr/share/backgrounds/Monterey/Monterey.jpg</from>
+  <to>/usr/share/backgrounds/Monterey/Monterey-dark.jpg</to>
+</transition>
+
+<!-- 'Monterey-dark.jpg' static background from 1 AM to 5 AM -->
 <static>
-<duration>18000.0</duration>
-<file>/usr/share/backgrounds/Monterey/Monterey.jpg</file>
+  <duration>14400.0</duration> <!-- 4 hours -->
+  <file>/usr/share/backgrounds/Monterey/Monterey-dark.jpg</file>
 </static>
+
+<!-- Transition from 'Monterey-dark.jpg' to 'Monterey-morning.jpg' at 5 AM -->
+<transition type="overlay">
+  <duration>7200.0</duration>
+  <from>/usr/share/backgrounds/Monterey/Monterey-dark.jpg</from>
+  <to>/usr/share/backgrounds/Monterey/Monterey-morning.jpg</to>
+</transition>
 
 <!-- It's 5 AM. We'll start transitioning to sunrise for 2 hours up until 7 AM. -->
 <transition type="overlay">
