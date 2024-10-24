@@ -4,8 +4,14 @@ readonly ROOT_UID=0
 readonly MAX_DELAY=20 # max delay for user to enter root password
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
-BACKGROUND_DIR="/usr/share/backgrounds"
-PROPERTIES_DIR="/usr/share/gnome-background-properties"
+
+if [[ "$UID" -eq "$ROOT_UID" ]]; then
+  BACKGROUND_DIR="/usr/share/backgrounds"
+  PROPERTIES_DIR="/usr/share/gnome-background-properties"
+else
+  BACKGROUND_DIR="$HOME/.local/share/backgrounds"
+  PROPERTIES_DIR="$HOME/.local/share/gnome-background-properties"
+fi
 
 THEME_VARIANTS=('WhiteSur' 'Monterey' 'Ventura' 'Sonoma')
 SCREEN_VARIANTS=('1080p' '2k' '4k')
@@ -72,6 +78,9 @@ install() {
 
   cp -a --no-preserve=ownership ${REPO_DIR}/xml-files/timed-xml-files/${theme}-timed.xml ${BACKGROUND_DIR}/${theme}
   cp -a --no-preserve=ownership ${REPO_DIR}/xml-files/gnome-background-properties/${theme}.xml ${PROPERTIES_DIR}
+
+  sed -i "s/@BACKGROUNDDIR@/$(printf '%s\n' "${BACKGROUND_DIR}" | sed 's/[\/&]/\\&/g')/g" "${BACKGROUND_DIR}/${theme}/${theme}-timed.xml"
+  sed -i "s/@BACKGROUNDDIR@/$(printf '%s\n' "${BACKGROUND_DIR}" | sed 's/[\/&]/\\&/g')/g" "${PROPERTIES_DIR}/${theme}.xml"
 }
 
 uninstall() {
@@ -194,13 +203,6 @@ uninstall_wallpaper() {
   done
   echo
 }
-
-if [[ $UID -ne $ROOT_UID ]];  then
-  echo
-  prompt -e "ERROR: Need root access! please run this script with sudo."
-  echo
-  exit 1
-fi
 
 if [[ "${uninstall}" != 'true' ]]; then
   install_wallpaper && install_nord_wallpaper

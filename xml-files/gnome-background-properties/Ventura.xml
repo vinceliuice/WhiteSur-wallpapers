@@ -3,8 +3,8 @@
 <wallpapers>
   <wallpaper deleted="false">
     <name>Ventura Background</name>
-    <filename>/usr/share/backgrounds/Ventura/Ventura-light.jpg</filename>
-    <filename-dark>/usr/share/backgrounds/Ventura/Ventura-dark.jpg</filename-dark>
+    <filename>@BACKGROUNDDIR@/Ventura/Ventura-light.jpg</filename>
+    <filename-dark>@BACKGROUNDDIR@/Ventura/Ventura-dark.jpg</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -13,7 +13,7 @@
 
   <wallpaper deleted="false">
     <name>Ventura Time of Day</name>
-    <filename>/usr/share/backgrounds/Ventura/Ventura-timed.xml</filename>
+    <filename>@BACKGROUNDDIR@/Ventura/Ventura-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#ffffff</pcolor>

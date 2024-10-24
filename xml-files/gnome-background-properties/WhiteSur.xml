@@ -3,8 +3,8 @@
 <wallpapers>
   <wallpaper deleted="false">
     <name>WhiteSur Background</name>
-    <filename>/usr/share/backgrounds/WhiteSur/WhiteSur-light.jpg</filename>
-    <filename-dark>/usr/share/backgrounds/WhiteSur/WhiteSur.jpg</filename-dark>
+    <filename>@BACKGROUNDDIR@/WhiteSur/WhiteSur-light.jpg</filename>
+    <filename-dark>@BACKGROUNDDIR@/WhiteSur/WhiteSur.jpg</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -13,8 +13,8 @@
 
   <wallpaper deleted="false">
     <name>WhiteSur Nord Background</name>
-    <filename>/usr/share/backgrounds/Wallpaper-nord/WhiteSur-nord-light.png</filename>
-    <filename-dark>/usr/share/backgrounds/Wallpaper-nord/WhiteSur-nord-dark.png</filename-dark>
+    <filename>@BACKGROUNDDIR@/Wallpaper-nord/WhiteSur-nord-light.png</filename>
+    <filename-dark>@BACKGROUNDDIR@/Wallpaper-nord/WhiteSur-nord-dark.png</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#6882b3</pcolor>
@@ -23,7 +23,7 @@
 
   <wallpaper deleted="false">
     <name>WhiteSur Time of Day</name>
-    <filename>/usr/share/backgrounds/WhiteSur/WhiteSur-timed.xml</filename>
+    <filename>@BACKGROUNDDIR@/WhiteSur/WhiteSur-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#ffffff</pcolor>

@@ -3,8 +3,8 @@
 <wallpapers>
   <wallpaper deleted="false">
     <name>Monterey Background</name>
-    <filename>/usr/share/backgrounds/Monterey/Monterey-light.jpg</filename>
-    <filename-dark>/usr/share/backgrounds/Monterey/Monterey.jpg</filename-dark>
+    <filename>@BACKGROUNDDIR@/Monterey/Monterey-light.jpg</filename>
+    <filename-dark>@BACKGROUNDDIR@/Monterey/Monterey.jpg</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -13,7 +13,7 @@
 
   <wallpaper deleted="false">
     <name>Monterey Time of Day</name>
-    <filename>/usr/share/backgrounds/Monterey/Monterey-timed.xml</filename>
+    <filename>@BACKGROUNDDIR@/Monterey/Monterey-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#ffffff</pcolor>

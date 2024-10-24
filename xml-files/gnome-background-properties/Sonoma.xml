@@ -3,8 +3,8 @@
 <wallpapers>
   <wallpaper deleted="false">
     <name>Sonoma Background</name>
-    <filename>/usr/share/backgrounds/Sonoma/Sonoma-light.jpg</filename>
-    <filename-dark>/usr/share/backgrounds/Sonoma/Sonoma-dark.jpg</filename-dark>
+    <filename>@BACKGROUNDDIR@/Sonoma/Sonoma-light.jpg</filename>
+    <filename-dark>@BACKGROUNDDIR@/Sonoma/Sonoma-dark.jpg</filename-dark>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#51a2da</pcolor>
@@ -13,7 +13,7 @@
 
   <wallpaper deleted="false">
     <name>Sonoma Time of Day</name>
-    <filename>/usr/share/backgrounds/Sonoma/Sonoma-timed.xml</filename>
+    <filename>@BACKGROUNDDIR@/Sonoma/Sonoma-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
     <pcolor>#ffffff</pcolor>
