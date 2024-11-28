@@ -33,13 +33,13 @@
 <transition type="overlay">
 <duration>21600.0</duration>
 <from>@BACKGROUNDDIR@/Monterey/Monterey-light.jpg</from>
-<to>@BACKGROUNDDIR@/Monterey/Monterey.jpg</to>
+<to>@BACKGROUNDDIR@/Monterey/Monterey-dark.jpg</to>
 </transition>
 
 <!-- It's midnight. It'll stay dark for 5 hours up until 5 AM. -->
 <static>
 <duration>18000.0</duration>
-<file>@BACKGROUNDDIR@/Monterey/Monterey.jpg</file>
+<file>@BACKGROUNDDIR@/Monterey/Monterey-dark.jpg</file>
 </static>
 
 <!-- It's 5 AM. We'll start transitioning to sunrise for 2 hours up until 7 AM. -->
