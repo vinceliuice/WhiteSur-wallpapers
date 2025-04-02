@@ -189,7 +189,7 @@ fi
 install_wallpaper() {
   echo
   for theme in "${themes[@]}"; do
-    for screen in "${screens[2]}"; do
+    for screen in "${screens[@]}"; do
       install "$theme" "$screen"
     done
   done
